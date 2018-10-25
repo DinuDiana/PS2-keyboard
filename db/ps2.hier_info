@@ -1,0 +1,115 @@
+|ps2
+clock_key => clock_key.IN1
+data_key => data_key.IN1
+clock_fpga => clock_fpga.IN4
+reset => reset.IN1
+led <= latch_D_ck:out.port2
+data_out[0] <= dout[1].DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= dout[2].DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= dout[3].DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= dout[4].DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= dout[5].DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= dout[6].DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= dout[7].DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= dout[8].DB_MAX_OUTPUT_PORT_TYPE
+new_code <= latch_D_ck:out.port2
+
+
+|ps2|latch_D_ck:lceas
+D => Q$latch.DATAIN
+ck => Q$latch.LATCH_ENABLE
+Q <= Q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ps2|latch_D_ck:ldate
+D => Q$latch.DATAIN
+ck => Q$latch.LATCH_ENABLE
+Q <= Q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ps2|SIPO:register
+din => s.DATAA
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => s[0].CLK
+clk => s[1].CLK
+clk => s[2].CLK
+clk => s[3].CLK
+clk => s[4].CLK
+clk => s[5].CLK
+clk => s[6].CLK
+clk => s[7].CLK
+clk => s[8].CLK
+clk => s[9].CLK
+clk => s[10].CLK
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => s.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+reset => count.OUTPUTSELECT
+dout[0] <= s[0].DB_MAX_OUTPUT_PORT_TYPE
+dout[1] <= s[1].DB_MAX_OUTPUT_PORT_TYPE
+dout[2] <= s[2].DB_MAX_OUTPUT_PORT_TYPE
+dout[3] <= s[3].DB_MAX_OUTPUT_PORT_TYPE
+dout[4] <= s[4].DB_MAX_OUTPUT_PORT_TYPE
+dout[5] <= s[5].DB_MAX_OUTPUT_PORT_TYPE
+dout[6] <= s[6].DB_MAX_OUTPUT_PORT_TYPE
+dout[7] <= s[7].DB_MAX_OUTPUT_PORT_TYPE
+dout[8] <= s[8].DB_MAX_OUTPUT_PORT_TYPE
+dout[9] <= s[9].DB_MAX_OUTPUT_PORT_TYPE
+dout[10] <= s[10].DB_MAX_OUTPUT_PORT_TYPE
+num[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+num[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+num[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+num[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ps2|verificare:ver
+clock_fpga => ~NO_FANOUT~
+data_in_parallel[0] => Mux0.IN19
+data_in_parallel[0] => always0.IN0
+data_in_parallel[1] => Mux0.IN18
+data_in_parallel[2] => Mux0.IN17
+data_in_parallel[3] => Mux0.IN16
+data_in_parallel[4] => Mux0.IN15
+data_in_parallel[5] => Mux0.IN14
+data_in_parallel[6] => Mux0.IN13
+data_in_parallel[7] => Mux0.IN12
+data_in_parallel[8] => Mux0.IN11
+data_in_parallel[9] => Mux0.IN10
+data_in_parallel[9] => always0.IN1
+data_in_parallel[10] => Mux0.IN9
+data_in_parallel[10] => always0.IN1
+ok <= ok$latch.DB_MAX_OUTPUT_PORT_TYPE
+count[0] => LessThan0.IN8
+count[0] => Add0.IN8
+count[0] => Equal0.IN2
+count[1] => LessThan0.IN7
+count[1] => Add0.IN7
+count[1] => Equal0.IN1
+count[2] => LessThan0.IN6
+count[2] => Add0.IN6
+count[2] => Equal0.IN31
+count[3] => LessThan0.IN5
+count[3] => Add0.IN5
+count[3] => Equal0.IN0
+
+
+|ps2|latch_D_ck:out
+D => Q$latch.DATAIN
+ck => Q$latch.LATCH_ENABLE
+Q <= Q$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
