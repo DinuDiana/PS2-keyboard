@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'SIPO:register|count[0]'
+Slack : -5.727
+TNS   : -9.412
+
+Type  : Slow Model Setup 'clock_fpga'
+Slack : -3.234
+TNS   : -3.234
+
+Type  : Slow Model Setup 'latch_D_ck:lceas|Q'
+Slack : -0.798
+TNS   : -2.686
+
+Type  : Slow Model Hold 'latch_D_ck:lceas|Q'
+Slack : -0.887
+TNS   : -0.952
+
+Type  : Slow Model Hold 'clock_fpga'
+Slack : -0.285
+TNS   : -0.285
+
+Type  : Slow Model Hold 'SIPO:register|count[0]'
+Slack : 0.752
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clock_fpga'
+Slack : -1.631
+TNS   : -1.631
+
+Type  : Slow Model Minimum Pulse Width 'latch_D_ck:lceas|Q'
+Slack : -0.611
+TNS   : -18.330
+
+Type  : Slow Model Minimum Pulse Width 'SIPO:register|count[0]'
+Slack : 0.500
+TNS   : 0.000
+
+Type  : Fast Model Setup 'SIPO:register|count[0]'
+Slack : -2.402
+TNS   : -3.790
+
+Type  : Fast Model Setup 'clock_fpga'
+Slack : -0.521
+TNS   : -0.521
+
+Type  : Fast Model Setup 'latch_D_ck:lceas|Q'
+Slack : 0.296
+TNS   : 0.000
+
+Type  : Fast Model Hold 'latch_D_ck:lceas|Q'
+Slack : -0.975
+TNS   : -1.134
+
+Type  : Fast Model Hold 'clock_fpga'
+Slack : -0.749
+TNS   : -0.749
+
+Type  : Fast Model Hold 'SIPO:register|count[0]'
+Slack : 0.265
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clock_fpga'
+Slack : -1.380
+TNS   : -1.380
+
+Type  : Fast Model Minimum Pulse Width 'latch_D_ck:lceas|Q'
+Slack : -0.500
+TNS   : -15.000
+
+Type  : Fast Model Minimum Pulse Width 'SIPO:register|count[0]'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

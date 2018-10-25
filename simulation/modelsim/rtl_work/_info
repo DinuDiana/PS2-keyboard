@@ -1,0 +1,107 @@
+m255
+K3
+13
+cModel Technology
+Z0 dE:\FACULTATE\Anul 2\Sem 2\scoala de vara fpga\ps2\simulation\modelsim
+vlatch_D_ck
+ILY=8<LjTdCkcHmikK:UNB2
+V[=f1PXg;4H>o_B5^D^?jJ3
+Z1 dE:\FACULTATE\Anul 2\Sem 2\scoala de vara fpga\ps2\simulation\modelsim
+w1530864527
+8E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/latch_D_ck.v
+FE:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/latch_D_ck.v
+L0 1
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work {+incdir+E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2} -O0
+nlatch_@d_ck
+!i10b 1
+!s100 ]HX;>^hnDA[Q29CoACQAc2
+!s85 0
+!s108 1531564174.159000
+!s107 E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/latch_D_ck.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2|E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/latch_D_ck.v|
+!s101 -O0
+vps2
+InPG?60AQOgeiW4[41a<fh2
+Vf5eDi5f3o=5AbLhFHP36S2
+R1
+w1531564079
+8E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/ps2.v
+FE:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/ps2.v
+L0 1
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 ^7Q@o:obD7z3RePWhPcif1
+!s85 0
+!s108 1531564173.636000
+!s107 E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/ps2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2|E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/ps2.v|
+!s101 -O0
+vSIPO
+I^SR?;D0dKYeUo4`OCLNiN0
+V2DGK^N:6O7o=aXYKa5Vze1
+R1
+w1531563409
+8E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/SIPO.v
+FE:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/SIPO.v
+L0 1
+R2
+r1
+31
+R3
+R4
+n@s@i@p@o
+!i10b 1
+!s100 eVPVJ:WTJWF^7e<G7gS[F1
+!s85 0
+!s108 1531564173.841000
+!s107 E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/SIPO.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2|E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/SIPO.v|
+!s101 -O0
+vtest
+!i10b 1
+!s100 J8j6dK_UIdj?]LGaolTaQ3
+I`fjj32z4YA10F<JzA>6[z0
+Vk<3<[f=78GX=_HO53D;7>3
+R1
+w1531563731
+8E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/test.v
+FE:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/test.v
+L0 32
+R2
+r1
+!s85 0
+31
+!s108 1531564174.325000
+!s107 E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/test.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2|E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/test.v|
+!s101 -O0
+R3
+R4
+vverificare
+I1Q2z2J`kc8E^aWYl=lC]X2
+VV5:C;`b5zUb0ozg8IY[mc1
+R1
+w1531562345
+8E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/verificare.v
+FE:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/verificare.v
+L0 48
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 XXV<RN^G0faG2M?oMY0:12
+!s85 0
+!s108 1531564173.990000
+!s107 E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/verificare.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2|E:/FACULTATE/Anul 2/Sem 2/scoala de vara fpga/ps2/verificare.v|
+!s101 -O0

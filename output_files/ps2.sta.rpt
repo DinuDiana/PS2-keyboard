@@ -1,0 +1,1145 @@
+TimeQuest Timing Analyzer report for ps2
+Mon Jul 16 18:10:20 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'SIPO:register|count[0]'
+ 12. Slow Model Setup: 'clock_fpga'
+ 13. Slow Model Setup: 'latch_D_ck:lceas|Q'
+ 14. Slow Model Hold: 'latch_D_ck:lceas|Q'
+ 15. Slow Model Hold: 'clock_fpga'
+ 16. Slow Model Hold: 'SIPO:register|count[0]'
+ 17. Slow Model Minimum Pulse Width: 'clock_fpga'
+ 18. Slow Model Minimum Pulse Width: 'latch_D_ck:lceas|Q'
+ 19. Slow Model Minimum Pulse Width: 'SIPO:register|count[0]'
+ 20. Setup Times
+ 21. Hold Times
+ 22. Clock to Output Times
+ 23. Minimum Clock to Output Times
+ 24. Fast Model Setup Summary
+ 25. Fast Model Hold Summary
+ 26. Fast Model Recovery Summary
+ 27. Fast Model Removal Summary
+ 28. Fast Model Minimum Pulse Width Summary
+ 29. Fast Model Setup: 'SIPO:register|count[0]'
+ 30. Fast Model Setup: 'clock_fpga'
+ 31. Fast Model Setup: 'latch_D_ck:lceas|Q'
+ 32. Fast Model Hold: 'latch_D_ck:lceas|Q'
+ 33. Fast Model Hold: 'clock_fpga'
+ 34. Fast Model Hold: 'SIPO:register|count[0]'
+ 35. Fast Model Minimum Pulse Width: 'clock_fpga'
+ 36. Fast Model Minimum Pulse Width: 'latch_D_ck:lceas|Q'
+ 37. Fast Model Minimum Pulse Width: 'SIPO:register|count[0]'
+ 38. Setup Times
+ 39. Hold Times
+ 40. Clock to Output Times
+ 41. Minimum Clock to Output Times
+ 42. Multicorner Timing Analysis Summary
+ 43. Setup Times
+ 44. Hold Times
+ 45. Clock to Output Times
+ 46. Minimum Clock to Output Times
+ 47. Setup Transfers
+ 48. Hold Transfers
+ 49. Report TCCS
+ 50. Report RSKM
+ 51. Unconstrained Paths
+ 52. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; ps2                                                               ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C20F484C7                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                         ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+; Clock Name             ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                    ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+; clock_fpga             ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clock_fpga }             ;
+; latch_D_ck:lceas|Q     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { latch_D_ck:lceas|Q }     ;
+; SIPO:register|count[0] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { SIPO:register|count[0] } ;
++------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                      ;
++------------+-----------------+------------------------+------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name             ; Note                                                 ;
++------------+-----------------+------------------------+------------------------------------------------------+
+; 160.93 MHz ; 160.93 MHz      ; SIPO:register|count[0] ;                                                      ;
+; 556.17 MHz ; 450.05 MHz      ; latch_D_ck:lceas|Q     ; limit due to low minimum pulse width violation (tcl) ;
++------------+-----------------+------------------------+------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-------------------------------------------------+
+; Slow Model Setup Summary                        ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; SIPO:register|count[0] ; -5.727 ; -9.412        ;
+; clock_fpga             ; -3.234 ; -3.234        ;
+; latch_D_ck:lceas|Q     ; -0.798 ; -2.686        ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------+
+; Slow Model Hold Summary                         ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; latch_D_ck:lceas|Q     ; -0.887 ; -0.952        ;
+; clock_fpga             ; -0.285 ; -0.285        ;
+; SIPO:register|count[0] ; 0.752  ; 0.000         ;
++------------------------+--------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++-------------------------------------------------+
+; Slow Model Minimum Pulse Width Summary          ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; clock_fpga             ; -1.631 ; -1.631        ;
+; latch_D_ck:lceas|Q     ; -0.611 ; -18.330       ;
+; SIPO:register|count[0] ; 0.500  ; 0.000         ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'SIPO:register|count[0]'                                                                                                      ;
++--------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node            ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+; -5.727 ; SIPO:register|s[2]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.388     ; 3.461      ;
+; -5.589 ; SIPO:register|s[4]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.387     ; 3.324      ;
+; -5.503 ; SIPO:register|s[0]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.388     ; 3.237      ;
+; -5.327 ; SIPO:register|s[8]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.387     ; 3.062      ;
+; -5.283 ; SIPO:register|s[3]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.388     ; 3.017      ;
+; -5.255 ; SIPO:register|s[1]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.388     ; 2.989      ;
+; -5.236 ; SIPO:register|s[6]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.387     ; 2.971      ;
+; -5.177 ; SIPO:register|s[9]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.387     ; 2.912      ;
+; -5.147 ; SIPO:register|s[5]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.387     ; 2.882      ;
+; -5.112 ; SIPO:register|s[7]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.387     ; 2.847      ;
+; -4.588 ; SIPO:register|s[10]    ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.387     ; 2.323      ;
+; -4.194 ; SIPO:register|count[1] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; 0.892      ; 4.208      ;
+; -3.885 ; SIPO:register|count[3] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; 0.892      ; 3.899      ;
+; -3.778 ; SIPO:register|count[2] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; 0.892      ; 3.792      ;
+; -3.685 ; SIPO:register|s[0]     ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 1.000        ; -1.599     ; 1.938      ;
+; -3.407 ; SIPO:register|s[9]     ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 1.000        ; -1.598     ; 1.661      ;
+; -3.364 ; SIPO:register|s[10]    ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 1.000        ; -1.598     ; 1.618      ;
+; -2.607 ; SIPO:register|count[0] ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; 0.500        ; 1.776      ; 3.782      ;
+; -2.107 ; SIPO:register|count[0] ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; 1.000        ; 1.776      ; 3.782      ;
+; -2.043 ; verificare:ver|sum     ; verificare:ver|ok  ; SIPO:register|count[0] ; SIPO:register|count[0] ; 0.500        ; -0.211     ; 1.184      ;
+; -1.964 ; verificare:ver|sum     ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; 1.000        ; 0.000      ; 1.586      ;
++--------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clock_fpga'                                                                                                 ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node          ; To Node          ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+; -3.234 ; SIPO:register|s[4] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.196     ; 2.888      ;
+; -2.852 ; SIPO:register|s[5] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.196     ; 2.506      ;
+; -2.804 ; SIPO:register|s[6] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.196     ; 2.458      ;
+; -2.689 ; SIPO:register|s[3] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.197     ; 2.342      ;
+; -2.680 ; SIPO:register|s[2] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.197     ; 2.333      ;
+; -2.614 ; SIPO:register|s[8] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.196     ; 2.268      ;
+; -2.574 ; SIPO:register|s[1] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.197     ; 2.227      ;
+; -2.461 ; SIPO:register|s[7] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.196     ; 2.115      ;
+; -2.271 ; SIPO:register|s[9] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.196     ; 1.925      ;
+; 0.135  ; verificare:ver|ok  ; latch_D_ck:out|Q ; SIPO:register|count[0] ; clock_fpga  ; 1.000        ; 1.402      ; 1.117      ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'latch_D_ck:lceas|Q'                                                                                                          ;
++--------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock           ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+; -0.798 ; SIPO:register|count[2] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.836      ;
+; -0.795 ; SIPO:register|count[2] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.833      ;
+; -0.754 ; SIPO:register|count[1] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.792      ;
+; -0.548 ; SIPO:register|count[3] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.586      ;
+; -0.545 ; SIPO:register|count[3] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.583      ;
+; -0.408 ; SIPO:register|count[1] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.446      ;
+; -0.398 ; SIPO:register|count[1] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.436      ;
+; -0.295 ; SIPO:register|count[2] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.333      ;
+; -0.242 ; SIPO:register|s[2]     ; SIPO:register|s[1]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.280      ;
+; -0.236 ; SIPO:register|count[0] ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.500        ; 0.884      ; 1.935      ;
+; -0.225 ; SIPO:register|s[4]     ; SIPO:register|s[3]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.001      ; 1.264      ;
+; -0.222 ; SIPO:register|s[3]     ; SIPO:register|s[2]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.260      ;
+; -0.119 ; SIPO:register|count[0] ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.500        ; 0.884      ; 1.818      ;
+; -0.006 ; SIPO:register|s[1]     ; SIPO:register|s[0]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.044      ;
+; 0.000  ; SIPO:register|s[8]     ; SIPO:register|s[7]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.038      ;
+; 0.002  ; SIPO:register|s[10]    ; SIPO:register|s[9]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 1.036      ;
+; 0.103  ; SIPO:register|s[7]     ; SIPO:register|s[6]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.935      ;
+; 0.107  ; SIPO:register|s[9]     ; SIPO:register|s[8]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.931      ;
+; 0.108  ; SIPO:register|s[5]     ; SIPO:register|s[4]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.930      ;
+; 0.115  ; SIPO:register|s[6]     ; SIPO:register|s[5]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.923      ;
+; 0.120  ; SIPO:register|count[0] ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.500        ; 0.884      ; 1.579      ;
+; 0.264  ; SIPO:register|count[0] ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 1.000        ; 0.884      ; 1.935      ;
+; 0.307  ; SIPO:register|count[3] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.731      ;
+; 0.381  ; SIPO:register|count[0] ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 1.000        ; 0.884      ; 1.818      ;
+; 0.433  ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 2.280      ; 2.885      ;
+; 0.620  ; SIPO:register|count[0] ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 1.000        ; 0.884      ; 1.579      ;
+; 0.683  ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 2.280      ; 2.635      ;
+; 0.817  ; latch_D_ck:ldate|Q     ; SIPO:register|s[10]    ; clock_fpga             ; latch_D_ck:lceas|Q ; 1.000        ; 0.362      ; 0.583      ;
+; 0.820  ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 2.280      ; 2.498      ;
+; 0.831  ; SIPO:register|count[0] ; SIPO:register|count[0] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.500        ; 3.164      ; 3.148      ;
+; 1.331  ; SIPO:register|count[0] ; SIPO:register|count[0] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 1.000        ; 3.164      ; 3.148      ;
++--------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'latch_D_ck:lceas|Q'                                                                                                           ;
++--------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock           ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+; -0.887 ; SIPO:register|count[0] ; SIPO:register|count[0] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.000        ; 3.164      ; 2.840      ;
+; -0.387 ; SIPO:register|count[0] ; SIPO:register|count[0] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; -0.500       ; 3.164      ; 2.840      ;
+; -0.068 ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 2.280      ; 2.498      ;
+; -0.065 ; latch_D_ck:ldate|Q     ; SIPO:register|s[10]    ; clock_fpga             ; latch_D_ck:lceas|Q ; 0.000        ; 0.362      ; 0.583      ;
+; 0.069  ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 2.280      ; 2.635      ;
+; 0.132  ; SIPO:register|count[0] ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.000        ; 0.884      ; 1.579      ;
+; 0.319  ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 2.280      ; 2.885      ;
+; 0.341  ; SIPO:register|count[0] ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.000        ; 0.884      ; 1.788      ;
+; 0.344  ; SIPO:register|count[0] ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.000        ; 0.884      ; 1.791      ;
+; 0.445  ; SIPO:register|count[1] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; SIPO:register|count[2] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.731      ;
+; 0.445  ; SIPO:register|count[3] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.731      ;
+; 0.632  ; SIPO:register|count[0] ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; -0.500       ; 0.884      ; 1.579      ;
+; 0.637  ; SIPO:register|s[6]     ; SIPO:register|s[5]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.923      ;
+; 0.644  ; SIPO:register|s[5]     ; SIPO:register|s[4]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.930      ;
+; 0.645  ; SIPO:register|s[9]     ; SIPO:register|s[8]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.931      ;
+; 0.649  ; SIPO:register|s[7]     ; SIPO:register|s[6]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.935      ;
+; 0.750  ; SIPO:register|s[10]    ; SIPO:register|s[9]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.036      ;
+; 0.752  ; SIPO:register|s[8]     ; SIPO:register|s[7]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.038      ;
+; 0.758  ; SIPO:register|s[1]     ; SIPO:register|s[0]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.044      ;
+; 0.841  ; SIPO:register|count[0] ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; -0.500       ; 0.884      ; 1.788      ;
+; 0.844  ; SIPO:register|count[0] ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; -0.500       ; 0.884      ; 1.791      ;
+; 0.974  ; SIPO:register|s[3]     ; SIPO:register|s[2]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.260      ;
+; 0.977  ; SIPO:register|s[4]     ; SIPO:register|s[3]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.001      ; 1.264      ;
+; 0.994  ; SIPO:register|s[2]     ; SIPO:register|s[1]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.280      ;
+; 1.047  ; SIPO:register|count[2] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.333      ;
+; 1.150  ; SIPO:register|count[1] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.436      ;
+; 1.163  ; SIPO:register|count[1] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.449      ;
+; 1.297  ; SIPO:register|count[3] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.583      ;
+; 1.300  ; SIPO:register|count[3] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.586      ;
+; 1.547  ; SIPO:register|count[2] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 1.833      ;
++--------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clock_fpga'                                                                                                  ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node          ; To Node          ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+; -0.285 ; verificare:ver|ok  ; latch_D_ck:out|Q ; SIPO:register|count[0] ; clock_fpga  ; 0.000        ; 1.402      ; 1.117      ;
+; 2.121  ; SIPO:register|s[9] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.196     ; 1.925      ;
+; 2.311  ; SIPO:register|s[7] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.196     ; 2.115      ;
+; 2.424  ; SIPO:register|s[1] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.197     ; 2.227      ;
+; 2.464  ; SIPO:register|s[8] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.196     ; 2.268      ;
+; 2.530  ; SIPO:register|s[2] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.197     ; 2.333      ;
+; 2.539  ; SIPO:register|s[3] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.197     ; 2.342      ;
+; 2.654  ; SIPO:register|s[6] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.196     ; 2.458      ;
+; 2.702  ; SIPO:register|s[5] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.196     ; 2.506      ;
+; 3.084  ; SIPO:register|s[4] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.196     ; 2.888      ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'SIPO:register|count[0]'                                                                                                      ;
++-------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node            ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+; 0.752 ; SIPO:register|count[0] ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; 0.000        ; 1.776      ; 2.805      ;
+; 1.252 ; SIPO:register|count[0] ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; -0.500       ; 1.776      ; 2.805      ;
+; 1.586 ; verificare:ver|sum     ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; 0.000        ; 0.000      ; 1.586      ;
+; 1.895 ; verificare:ver|sum     ; verificare:ver|ok  ; SIPO:register|count[0] ; SIPO:register|count[0] ; -0.500       ; -0.211     ; 1.184      ;
+; 2.264 ; SIPO:register|count[1] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; 0.892      ; 2.656      ;
+; 2.653 ; SIPO:register|count[2] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; 0.892      ; 3.045      ;
+; 2.816 ; SIPO:register|count[3] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; 0.892      ; 3.208      ;
+; 3.216 ; SIPO:register|s[10]    ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.000        ; -1.598     ; 1.618      ;
+; 3.259 ; SIPO:register|s[9]     ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.000        ; -1.598     ; 1.661      ;
+; 3.537 ; SIPO:register|s[0]     ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.000        ; -1.599     ; 1.938      ;
+; 4.210 ; SIPO:register|s[10]    ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.387     ; 2.323      ;
+; 4.734 ; SIPO:register|s[7]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.387     ; 2.847      ;
+; 4.769 ; SIPO:register|s[5]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.387     ; 2.882      ;
+; 4.799 ; SIPO:register|s[9]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.387     ; 2.912      ;
+; 4.858 ; SIPO:register|s[6]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.387     ; 2.971      ;
+; 4.877 ; SIPO:register|s[1]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.388     ; 2.989      ;
+; 4.905 ; SIPO:register|s[3]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.388     ; 3.017      ;
+; 4.949 ; SIPO:register|s[8]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.387     ; 3.062      ;
+; 5.125 ; SIPO:register|s[0]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.388     ; 3.237      ;
+; 5.211 ; SIPO:register|s[4]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.387     ; 3.324      ;
+; 5.349 ; SIPO:register|s[2]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.388     ; 3.461      ;
++-------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clock_fpga'                                                                      ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target                      ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------+
+; -1.631 ; 1.000        ; 2.631          ; Port Rate        ; clock_fpga ; Rise       ; clock_fpga                  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; clock_fpga|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; clock_fpga|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; clock_fpga~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; clock_fpga~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; clock_fpga~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; clock_fpga~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Fall       ; latch_D_ck:lceas|Q          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Fall       ; latch_D_ck:lceas|Q          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Fall       ; latch_D_ck:ldate|Q          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Fall       ; latch_D_ck:ldate|Q          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Fall       ; latch_D_ck:out|Q            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Fall       ; latch_D_ck:out|Q            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; lceas|Q|datad               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; lceas|Q|datad               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; ldate|Q|datad               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; ldate|Q|datad               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; out|Q|datac                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; out|Q|datac                 ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'latch_D_ck:lceas|Q'                                                                   ;
++--------+--------------+----------------+------------------+--------------------+------------+--------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock              ; Clock Edge ; Target                   ;
++--------+--------------+----------------+------------------+--------------------+------------+--------------------------+
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[0]   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[0]   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[1]   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[1]   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[2]   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[2]   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[3]   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[3]   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[0]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[0]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[10]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[10]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[1]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[1]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[2]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[2]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[3]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[3]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[4]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[4]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[5]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[5]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[6]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[6]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[7]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[7]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[8]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[8]       ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[9]       ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[9]       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|count[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|count[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|count[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|count[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|count[2]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|count[2]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|count[3]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|count[3]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[0]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[0]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[10]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[10]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[1]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[1]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[2]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[2]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[3]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[3]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[4]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[4]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[5]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[5]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[6]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[6]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[7]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[7]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[8]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[8]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[9]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[9]|clk        ;
++--------+--------------+----------------+------------------+--------------------+------------+--------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'SIPO:register|count[0]'                                                                  ;
++-------+--------------+----------------+------------------+------------------------+------------+--------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                  ; Clock Edge ; Target                   ;
++-------+--------------+----------------+------------------+------------------------+------------+--------------------------+
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Rise       ; register|count[0]|regout ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Rise       ; register|count[0]|regout ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Fall       ; verificare:ver|ok        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Fall       ; verificare:ver|ok        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Rise       ; verificare:ver|sum       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Rise       ; verificare:ver|sum       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Fall       ; ver|LessThan0~0|combout  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Fall       ; ver|LessThan0~0|combout  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Rise       ; ver|LessThan0~0|datab    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Rise       ; ver|LessThan0~0|datab    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Fall       ; ver|ok|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Fall       ; ver|ok|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Fall       ; ver|ok~0|combout         ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Fall       ; ver|ok~0|combout         ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Rise       ; ver|ok~0|datac           ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Rise       ; ver|ok~0|datac           ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Fall       ; ver|sum|dataa            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Fall       ; ver|sum|dataa            ;
++-------+--------------+----------------+------------------+------------------------+------------+--------------------------+
+
+
++----------------------------------------------------------------------------------+
+; Setup Times                                                                      ;
++-----------+--------------------+-------+-------+------------+--------------------+
+; Data Port ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++-----------+--------------------+-------+-------+------------+--------------------+
+; clock_key ; clock_fpga         ; 5.746 ; 5.746 ; Fall       ; clock_fpga         ;
+; data_key  ; clock_fpga         ; 5.525 ; 5.525 ; Fall       ; clock_fpga         ;
+; reset     ; latch_D_ck:lceas|Q ; 6.080 ; 6.080 ; Fall       ; latch_D_ck:lceas|Q ;
++-----------+--------------------+-------+-------+------------+--------------------+
+
+
++------------------------------------------------------------------------------------+
+; Hold Times                                                                         ;
++-----------+--------------------+--------+--------+------------+--------------------+
+; Data Port ; Clock Port         ; Rise   ; Fall   ; Clock Edge ; Clock Reference    ;
++-----------+--------------------+--------+--------+------------+--------------------+
+; clock_key ; clock_fpga         ; -4.738 ; -4.738 ; Fall       ; clock_fpga         ;
+; data_key  ; clock_fpga         ; -4.475 ; -4.475 ; Fall       ; clock_fpga         ;
+; reset     ; latch_D_ck:lceas|Q ; -3.220 ; -3.220 ; Fall       ; latch_D_ck:lceas|Q ;
++-----------+--------------------+--------+--------+------------+--------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Clock to Output Times                                                               ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; Data Port    ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; led          ; clock_fpga         ; 6.910 ; 6.910 ; Fall       ; clock_fpga         ;
+; new_code     ; clock_fpga         ; 6.947 ; 6.947 ; Fall       ; clock_fpga         ;
+; data_out[*]  ; latch_D_ck:lceas|Q ; 7.712 ; 7.712 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[0] ; latch_D_ck:lceas|Q ; 7.130 ; 7.130 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[1] ; latch_D_ck:lceas|Q ; 7.100 ; 7.100 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[2] ; latch_D_ck:lceas|Q ; 7.140 ; 7.140 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[3] ; latch_D_ck:lceas|Q ; 7.712 ; 7.712 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[4] ; latch_D_ck:lceas|Q ; 7.505 ; 7.505 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[5] ; latch_D_ck:lceas|Q ; 7.519 ; 7.519 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[6] ; latch_D_ck:lceas|Q ; 7.474 ; 7.474 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[7] ; latch_D_ck:lceas|Q ; 7.463 ; 7.463 ; Fall       ; latch_D_ck:lceas|Q ;
++--------------+--------------------+-------+-------+------------+--------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                       ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; Data Port    ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; led          ; clock_fpga         ; 6.910 ; 6.910 ; Fall       ; clock_fpga         ;
+; new_code     ; clock_fpga         ; 6.947 ; 6.947 ; Fall       ; clock_fpga         ;
+; data_out[*]  ; latch_D_ck:lceas|Q ; 7.100 ; 7.100 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[0] ; latch_D_ck:lceas|Q ; 7.130 ; 7.130 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[1] ; latch_D_ck:lceas|Q ; 7.100 ; 7.100 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[2] ; latch_D_ck:lceas|Q ; 7.140 ; 7.140 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[3] ; latch_D_ck:lceas|Q ; 7.712 ; 7.712 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[4] ; latch_D_ck:lceas|Q ; 7.505 ; 7.505 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[5] ; latch_D_ck:lceas|Q ; 7.519 ; 7.519 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[6] ; latch_D_ck:lceas|Q ; 7.474 ; 7.474 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[7] ; latch_D_ck:lceas|Q ; 7.463 ; 7.463 ; Fall       ; latch_D_ck:lceas|Q ;
++--------------+--------------------+-------+-------+------------+--------------------+
+
+
++-------------------------------------------------+
+; Fast Model Setup Summary                        ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; SIPO:register|count[0] ; -2.402 ; -3.790        ;
+; clock_fpga             ; -0.521 ; -0.521        ;
+; latch_D_ck:lceas|Q     ; 0.296  ; 0.000         ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------+
+; Fast Model Hold Summary                         ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; latch_D_ck:lceas|Q     ; -0.975 ; -1.134        ;
+; clock_fpga             ; -0.749 ; -0.749        ;
+; SIPO:register|count[0] ; 0.265  ; 0.000         ;
++------------------------+--------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++-------------------------------------------------+
+; Fast Model Minimum Pulse Width Summary          ;
++------------------------+--------+---------------+
+; Clock                  ; Slack  ; End Point TNS ;
++------------------------+--------+---------------+
+; clock_fpga             ; -1.380 ; -1.380        ;
+; latch_D_ck:lceas|Q     ; -0.500 ; -15.000       ;
+; SIPO:register|count[0] ; 0.500  ; 0.000         ;
++------------------------+--------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'SIPO:register|count[0]'                                                                                                      ;
++--------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node            ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+; -2.402 ; SIPO:register|s[2]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.135     ; 1.282      ;
+; -2.359 ; SIPO:register|s[4]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.134     ; 1.240      ;
+; -2.321 ; SIPO:register|s[0]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.135     ; 1.201      ;
+; -2.263 ; SIPO:register|s[8]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.134     ; 1.144      ;
+; -2.249 ; SIPO:register|s[3]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.134     ; 1.130      ;
+; -2.241 ; SIPO:register|s[1]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.135     ; 1.121      ;
+; -2.237 ; SIPO:register|s[6]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.134     ; 1.118      ;
+; -2.212 ; SIPO:register|s[9]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.134     ; 1.093      ;
+; -2.199 ; SIPO:register|s[5]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.134     ; 1.080      ;
+; -2.190 ; SIPO:register|s[7]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.134     ; 1.071      ;
+; -2.004 ; SIPO:register|s[10]    ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; -1.134     ; 0.885      ;
+; -1.388 ; SIPO:register|s[0]     ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 1.000        ; -1.220     ; 0.774      ;
+; -1.341 ; SIPO:register|count[1] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; 0.226      ; 1.582      ;
+; -1.278 ; SIPO:register|s[10]    ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 1.000        ; -1.219     ; 0.665      ;
+; -1.266 ; SIPO:register|s[9]     ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 1.000        ; -1.219     ; 0.653      ;
+; -1.236 ; SIPO:register|count[3] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; 0.226      ; 1.477      ;
+; -1.194 ; SIPO:register|count[2] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.500        ; 0.226      ; 1.435      ;
+; -0.620 ; SIPO:register|count[0] ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; 0.500        ; 0.656      ; 1.432      ;
+; -0.399 ; verificare:ver|sum     ; verificare:ver|ok  ; SIPO:register|count[0] ; SIPO:register|count[0] ; 0.500        ; -0.085     ; 0.420      ;
+; -0.120 ; SIPO:register|count[0] ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; 1.000        ; 0.656      ; 1.432      ;
+; -0.044 ; verificare:ver|sum     ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; 1.000        ; 0.000      ; 0.559      ;
++--------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clock_fpga'                                                                                                 ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node          ; To Node          ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+; -0.521 ; SIPO:register|s[4] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.050     ; 1.077      ;
+; -0.401 ; SIPO:register|s[5] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.050     ; 0.957      ;
+; -0.388 ; SIPO:register|s[6] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.050     ; 0.944      ;
+; -0.340 ; SIPO:register|s[2] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.051     ; 0.895      ;
+; -0.330 ; SIPO:register|s[3] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.050     ; 0.886      ;
+; -0.322 ; SIPO:register|s[8] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.050     ; 0.878      ;
+; -0.294 ; SIPO:register|s[1] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.051     ; 0.849      ;
+; -0.270 ; SIPO:register|s[7] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.050     ; 0.826      ;
+; -0.190 ; SIPO:register|s[9] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 1.000        ; -0.050     ; 0.746      ;
+; 1.355  ; verificare:ver|ok  ; latch_D_ck:out|Q ; SIPO:register|count[0] ; clock_fpga  ; 1.000        ; 1.169      ; 0.420      ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'latch_D_ck:lceas|Q'                                                                                                         ;
++-------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node                ; Launch Clock           ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+; 0.296 ; SIPO:register|count[1] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.736      ;
+; 0.308 ; SIPO:register|count[2] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.724      ;
+; 0.310 ; SIPO:register|count[2] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.722      ;
+; 0.339 ; SIPO:register|count[0] ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.500        ; 0.430      ; 0.764      ;
+; 0.350 ; SIPO:register|count[0] ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.500        ; 0.430      ; 0.753      ;
+; 0.394 ; SIPO:register|count[3] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.638      ;
+; 0.396 ; SIPO:register|count[3] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.636      ;
+; 0.424 ; SIPO:register|count[1] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.608      ;
+; 0.441 ; SIPO:register|count[1] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.591      ;
+; 0.467 ; SIPO:register|count[0] ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.500        ; 0.430      ; 0.636      ;
+; 0.491 ; SIPO:register|count[2] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.541      ;
+; 0.500 ; SIPO:register|s[3]     ; SIPO:register|s[2]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.001      ; 0.533      ;
+; 0.501 ; SIPO:register|s[4]     ; SIPO:register|s[3]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.531      ;
+; 0.512 ; SIPO:register|s[2]     ; SIPO:register|s[1]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.520      ;
+; 0.575 ; SIPO:register|s[8]     ; SIPO:register|s[7]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.457      ;
+; 0.575 ; SIPO:register|s[1]     ; SIPO:register|s[0]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.457      ;
+; 0.579 ; SIPO:register|s[10]    ; SIPO:register|s[9]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.453      ;
+; 0.624 ; SIPO:register|s[7]     ; SIPO:register|s[6]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.408      ;
+; 0.628 ; SIPO:register|s[9]     ; SIPO:register|s[8]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.404      ;
+; 0.629 ; SIPO:register|s[5]     ; SIPO:register|s[4]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.403      ;
+; 0.633 ; SIPO:register|s[6]     ; SIPO:register|s[5]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.399      ;
+; 0.665 ; SIPO:register|count[3] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 0.000      ; 0.367      ;
+; 0.839 ; SIPO:register|count[0] ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 1.000        ; 0.430      ; 0.764      ;
+; 0.850 ; SIPO:register|count[0] ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 1.000        ; 0.430      ; 0.753      ;
+; 0.924 ; latch_D_ck:ldate|Q     ; SIPO:register|s[10]    ; clock_fpga             ; latch_D_ck:lceas|Q ; 1.000        ; 0.110      ; 0.218      ;
+; 0.967 ; SIPO:register|count[0] ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 1.000        ; 0.430      ; 0.636      ;
+; 1.186 ; SIPO:register|count[0] ; SIPO:register|count[0] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.500        ; 1.790      ; 1.277      ;
+; 1.270 ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 1.360      ; 1.122      ;
+; 1.356 ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 1.360      ; 1.036      ;
+; 1.401 ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 1.000        ; 1.360      ; 0.991      ;
+; 1.686 ; SIPO:register|count[0] ; SIPO:register|count[0] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 1.000        ; 1.790      ; 1.277      ;
++-------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'latch_D_ck:lceas|Q'                                                                                                           ;
++--------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+; Slack  ; From Node              ; To Node                ; Launch Clock           ; Latch Clock        ; Relationship ; Clock Skew ; Data Delay ;
++--------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+; -0.975 ; SIPO:register|count[0] ; SIPO:register|count[0] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.000        ; 1.790      ; 1.108      ;
+; -0.521 ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 1.360      ; 0.991      ;
+; -0.476 ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 1.360      ; 1.036      ;
+; -0.475 ; SIPO:register|count[0] ; SIPO:register|count[0] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; -0.500       ; 1.790      ; 1.108      ;
+; -0.390 ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 1.360      ; 1.122      ;
+; -0.087 ; SIPO:register|count[0] ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.000        ; 0.430      ; 0.636      ;
+; -0.044 ; latch_D_ck:ldate|Q     ; SIPO:register|s[10]    ; clock_fpga             ; latch_D_ck:lceas|Q ; 0.000        ; 0.110      ; 0.218      ;
+; -0.015 ; SIPO:register|count[0] ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.000        ; 0.430      ; 0.708      ;
+; -0.013 ; SIPO:register|count[0] ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; 0.000        ; 0.430      ; 0.710      ;
+; 0.215  ; SIPO:register|count[1] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; SIPO:register|count[2] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215  ; SIPO:register|count[3] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.367      ;
+; 0.247  ; SIPO:register|s[6]     ; SIPO:register|s[5]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.399      ;
+; 0.251  ; SIPO:register|s[5]     ; SIPO:register|s[4]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.403      ;
+; 0.252  ; SIPO:register|s[9]     ; SIPO:register|s[8]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.404      ;
+; 0.256  ; SIPO:register|s[7]     ; SIPO:register|s[6]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.408      ;
+; 0.301  ; SIPO:register|s[10]    ; SIPO:register|s[9]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.453      ;
+; 0.305  ; SIPO:register|s[8]     ; SIPO:register|s[7]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.457      ;
+; 0.305  ; SIPO:register|s[1]     ; SIPO:register|s[0]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.457      ;
+; 0.368  ; SIPO:register|s[2]     ; SIPO:register|s[1]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.520      ;
+; 0.379  ; SIPO:register|s[4]     ; SIPO:register|s[3]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.531      ;
+; 0.380  ; SIPO:register|s[3]     ; SIPO:register|s[2]     ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.001      ; 0.533      ;
+; 0.389  ; SIPO:register|count[2] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.541      ;
+; 0.413  ; SIPO:register|count[0] ; SIPO:register|count[3] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; -0.500       ; 0.430      ; 0.636      ;
+; 0.441  ; SIPO:register|count[1] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.593      ;
+; 0.456  ; SIPO:register|count[1] ; SIPO:register|count[3] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.608      ;
+; 0.484  ; SIPO:register|count[3] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.636      ;
+; 0.485  ; SIPO:register|count[0] ; SIPO:register|count[1] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; -0.500       ; 0.430      ; 0.708      ;
+; 0.486  ; SIPO:register|count[3] ; SIPO:register|count[2] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.638      ;
+; 0.487  ; SIPO:register|count[0] ; SIPO:register|count[2] ; SIPO:register|count[0] ; latch_D_ck:lceas|Q ; -0.500       ; 0.430      ; 0.710      ;
+; 0.570  ; SIPO:register|count[2] ; SIPO:register|count[1] ; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q ; 0.000        ; 0.000      ; 0.722      ;
++--------+------------------------+------------------------+------------------------+--------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clock_fpga'                                                                                                  ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node          ; To Node          ; Launch Clock           ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+; -0.749 ; verificare:ver|ok  ; latch_D_ck:out|Q ; SIPO:register|count[0] ; clock_fpga  ; 0.000        ; 1.169      ; 0.420      ;
+; 0.796  ; SIPO:register|s[9] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.050     ; 0.746      ;
+; 0.876  ; SIPO:register|s[7] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.050     ; 0.826      ;
+; 0.900  ; SIPO:register|s[1] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.051     ; 0.849      ;
+; 0.928  ; SIPO:register|s[8] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.050     ; 0.878      ;
+; 0.936  ; SIPO:register|s[3] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.050     ; 0.886      ;
+; 0.946  ; SIPO:register|s[2] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.051     ; 0.895      ;
+; 0.994  ; SIPO:register|s[6] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.050     ; 0.944      ;
+; 1.007  ; SIPO:register|s[5] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.050     ; 0.957      ;
+; 1.127  ; SIPO:register|s[4] ; latch_D_ck:out|Q ; latch_D_ck:lceas|Q     ; clock_fpga  ; 0.000        ; -0.050     ; 1.077      ;
++--------+--------------------+------------------+------------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'SIPO:register|count[0]'                                                                                                      ;
++-------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+; Slack ; From Node              ; To Node            ; Launch Clock           ; Latch Clock            ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+; 0.265 ; SIPO:register|count[0] ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; 0.000        ; 0.656      ; 1.062      ;
+; 0.559 ; verificare:ver|sum     ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; 0.000        ; 0.000      ; 0.559      ;
+; 0.765 ; SIPO:register|count[0] ; verificare:ver|sum ; SIPO:register|count[0] ; SIPO:register|count[0] ; -0.500       ; 0.656      ; 1.062      ;
+; 1.005 ; verificare:ver|sum     ; verificare:ver|ok  ; SIPO:register|count[0] ; SIPO:register|count[0] ; -0.500       ; -0.085     ; 0.420      ;
+; 1.285 ; SIPO:register|count[1] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; 0.226      ; 1.011      ;
+; 1.421 ; SIPO:register|count[2] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; 0.226      ; 1.147      ;
+; 1.487 ; SIPO:register|count[3] ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; 0.226      ; 1.213      ;
+; 1.872 ; SIPO:register|s[9]     ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.000        ; -1.219     ; 0.653      ;
+; 1.884 ; SIPO:register|s[10]    ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.000        ; -1.219     ; 0.665      ;
+; 1.994 ; SIPO:register|s[0]     ; verificare:ver|ok  ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0.000        ; -1.220     ; 0.774      ;
+; 2.519 ; SIPO:register|s[10]    ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.134     ; 0.885      ;
+; 2.705 ; SIPO:register|s[7]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.134     ; 1.071      ;
+; 2.714 ; SIPO:register|s[5]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.134     ; 1.080      ;
+; 2.727 ; SIPO:register|s[9]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.134     ; 1.093      ;
+; 2.752 ; SIPO:register|s[6]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.134     ; 1.118      ;
+; 2.756 ; SIPO:register|s[1]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.135     ; 1.121      ;
+; 2.764 ; SIPO:register|s[3]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.134     ; 1.130      ;
+; 2.778 ; SIPO:register|s[8]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.134     ; 1.144      ;
+; 2.836 ; SIPO:register|s[0]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.135     ; 1.201      ;
+; 2.874 ; SIPO:register|s[4]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.134     ; 1.240      ;
+; 2.917 ; SIPO:register|s[2]     ; verificare:ver|sum ; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; -0.500       ; -1.135     ; 1.282      ;
++-------+------------------------+--------------------+------------------------+------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clock_fpga'                                                                      ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock      ; Clock Edge ; Target                      ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clock_fpga ; Rise       ; clock_fpga                  ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; clock_fpga|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; clock_fpga|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; clock_fpga~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; clock_fpga~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; clock_fpga~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; clock_fpga~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Fall       ; latch_D_ck:lceas|Q          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Fall       ; latch_D_ck:lceas|Q          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Fall       ; latch_D_ck:ldate|Q          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Fall       ; latch_D_ck:ldate|Q          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Fall       ; latch_D_ck:out|Q            ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Fall       ; latch_D_ck:out|Q            ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; lceas|Q|datad               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; lceas|Q|datad               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; ldate|Q|datad               ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; ldate|Q|datad               ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; clock_fpga ; Rise       ; out|Q|datac                 ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; clock_fpga ; Rise       ; out|Q|datac                 ;
++--------+--------------+----------------+------------------+------------+------------+-----------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'latch_D_ck:lceas|Q'                                                                   ;
++--------+--------------+----------------+------------------+--------------------+------------+--------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock              ; Clock Edge ; Target                   ;
++--------+--------------+----------------+------------------+--------------------+------------+--------------------------+
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[2]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[2]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[3]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|count[3]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[0]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[10]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[10]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[1]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[2]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[2]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[3]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[3]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[4]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[4]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[5]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[5]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[6]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[6]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[7]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[7]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[8]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[8]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[9]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Fall       ; SIPO:register|s[9]       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q|combout          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q~clkctrl|inclk[0] ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; lceas|Q~clkctrl|outclk   ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|count[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|count[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|count[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|count[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|count[2]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|count[2]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|count[3]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|count[3]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[0]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[0]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[10]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[10]|clk       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[1]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[1]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[2]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[2]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[3]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[3]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[4]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[4]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[5]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[5]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[6]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[6]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[7]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[7]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[8]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[8]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; latch_D_ck:lceas|Q ; Rise       ; register|s[9]|clk        ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; latch_D_ck:lceas|Q ; Rise       ; register|s[9]|clk        ;
++--------+--------------+----------------+------------------+--------------------+------------+--------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'SIPO:register|count[0]'                                                                  ;
++-------+--------------+----------------+------------------+------------------------+------------+--------------------------+
+; Slack ; Actual Width ; Required Width ; Type             ; Clock                  ; Clock Edge ; Target                   ;
++-------+--------------+----------------+------------------+------------------------+------------+--------------------------+
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Rise       ; register|count[0]|regout ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Rise       ; register|count[0]|regout ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Fall       ; verificare:ver|ok        ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Fall       ; verificare:ver|ok        ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Rise       ; verificare:ver|sum       ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Rise       ; verificare:ver|sum       ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Fall       ; ver|LessThan0~0|combout  ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Fall       ; ver|LessThan0~0|combout  ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Rise       ; ver|LessThan0~0|datab    ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Rise       ; ver|LessThan0~0|datab    ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Fall       ; ver|ok|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Fall       ; ver|ok|datac             ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Fall       ; ver|ok~0|combout         ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Fall       ; ver|ok~0|combout         ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Rise       ; ver|ok~0|datac           ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Rise       ; ver|ok~0|datac           ;
+; 0.500 ; 0.500        ; 0.000          ; High Pulse Width ; SIPO:register|count[0] ; Fall       ; ver|sum|dataa            ;
+; 0.500 ; 0.500        ; 0.000          ; Low Pulse Width  ; SIPO:register|count[0] ; Fall       ; ver|sum|dataa            ;
++-------+--------------+----------------+------------------+------------------------+------------+--------------------------+
+
+
++----------------------------------------------------------------------------------+
+; Setup Times                                                                      ;
++-----------+--------------------+-------+-------+------------+--------------------+
+; Data Port ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++-----------+--------------------+-------+-------+------------+--------------------+
+; clock_key ; clock_fpga         ; 2.573 ; 2.573 ; Fall       ; clock_fpga         ;
+; data_key  ; clock_fpga         ; 2.487 ; 2.487 ; Fall       ; clock_fpga         ;
+; reset     ; latch_D_ck:lceas|Q ; 3.206 ; 3.206 ; Fall       ; latch_D_ck:lceas|Q ;
++-----------+--------------------+-------+-------+------------+--------------------+
+
+
++------------------------------------------------------------------------------------+
+; Hold Times                                                                         ;
++-----------+--------------------+--------+--------+------------+--------------------+
+; Data Port ; Clock Port         ; Rise   ; Fall   ; Clock Edge ; Clock Reference    ;
++-----------+--------------------+--------+--------+------------+--------------------+
+; clock_key ; clock_fpga         ; -2.224 ; -2.224 ; Fall       ; clock_fpga         ;
+; data_key  ; clock_fpga         ; -2.129 ; -2.129 ; Fall       ; clock_fpga         ;
+; reset     ; latch_D_ck:lceas|Q ; -1.629 ; -1.629 ; Fall       ; latch_D_ck:lceas|Q ;
++-----------+--------------------+--------+--------+------------+--------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Clock to Output Times                                                               ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; Data Port    ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; led          ; clock_fpga         ; 3.565 ; 3.565 ; Fall       ; clock_fpga         ;
+; new_code     ; clock_fpga         ; 3.598 ; 3.598 ; Fall       ; clock_fpga         ;
+; data_out[*]  ; latch_D_ck:lceas|Q ; 3.910 ; 3.910 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[0] ; latch_D_ck:lceas|Q ; 3.697 ; 3.697 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[1] ; latch_D_ck:lceas|Q ; 3.678 ; 3.678 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[2] ; latch_D_ck:lceas|Q ; 3.704 ; 3.704 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[3] ; latch_D_ck:lceas|Q ; 3.910 ; 3.910 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[4] ; latch_D_ck:lceas|Q ; 3.854 ; 3.854 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[5] ; latch_D_ck:lceas|Q ; 3.865 ; 3.865 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[6] ; latch_D_ck:lceas|Q ; 3.834 ; 3.834 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[7] ; latch_D_ck:lceas|Q ; 3.827 ; 3.827 ; Fall       ; latch_D_ck:lceas|Q ;
++--------------+--------------------+-------+-------+------------+--------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                       ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; Data Port    ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; led          ; clock_fpga         ; 3.565 ; 3.565 ; Fall       ; clock_fpga         ;
+; new_code     ; clock_fpga         ; 3.598 ; 3.598 ; Fall       ; clock_fpga         ;
+; data_out[*]  ; latch_D_ck:lceas|Q ; 3.678 ; 3.678 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[0] ; latch_D_ck:lceas|Q ; 3.697 ; 3.697 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[1] ; latch_D_ck:lceas|Q ; 3.678 ; 3.678 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[2] ; latch_D_ck:lceas|Q ; 3.704 ; 3.704 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[3] ; latch_D_ck:lceas|Q ; 3.910 ; 3.910 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[4] ; latch_D_ck:lceas|Q ; 3.854 ; 3.854 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[5] ; latch_D_ck:lceas|Q ; 3.865 ; 3.865 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[6] ; latch_D_ck:lceas|Q ; 3.834 ; 3.834 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[7] ; latch_D_ck:lceas|Q ; 3.827 ; 3.827 ; Fall       ; latch_D_ck:lceas|Q ;
++--------------+--------------------+-------+-------+------------+--------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                   ;
++-------------------------+---------+--------+----------+---------+---------------------+
+; Clock                   ; Setup   ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
++-------------------------+---------+--------+----------+---------+---------------------+
+; Worst-case Slack        ; -5.727  ; -0.975 ; N/A      ; N/A     ; -1.631              ;
+;  SIPO:register|count[0] ; -5.727  ; 0.265  ; N/A      ; N/A     ; 0.500               ;
+;  clock_fpga             ; -3.234  ; -0.749 ; N/A      ; N/A     ; -1.631              ;
+;  latch_D_ck:lceas|Q     ; -0.798  ; -0.975 ; N/A      ; N/A     ; -0.611              ;
+; Design-wide TNS         ; -15.332 ; -1.883 ; 0.0      ; 0.0     ; -19.961             ;
+;  SIPO:register|count[0] ; -9.412  ; 0.000  ; N/A      ; N/A     ; 0.000               ;
+;  clock_fpga             ; -3.234  ; -0.749 ; N/A      ; N/A     ; -1.631              ;
+;  latch_D_ck:lceas|Q     ; -2.686  ; -1.134 ; N/A      ; N/A     ; -18.330             ;
++-------------------------+---------+--------+----------+---------+---------------------+
+
+
++----------------------------------------------------------------------------------+
+; Setup Times                                                                      ;
++-----------+--------------------+-------+-------+------------+--------------------+
+; Data Port ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++-----------+--------------------+-------+-------+------------+--------------------+
+; clock_key ; clock_fpga         ; 5.746 ; 5.746 ; Fall       ; clock_fpga         ;
+; data_key  ; clock_fpga         ; 5.525 ; 5.525 ; Fall       ; clock_fpga         ;
+; reset     ; latch_D_ck:lceas|Q ; 6.080 ; 6.080 ; Fall       ; latch_D_ck:lceas|Q ;
++-----------+--------------------+-------+-------+------------+--------------------+
+
+
++------------------------------------------------------------------------------------+
+; Hold Times                                                                         ;
++-----------+--------------------+--------+--------+------------+--------------------+
+; Data Port ; Clock Port         ; Rise   ; Fall   ; Clock Edge ; Clock Reference    ;
++-----------+--------------------+--------+--------+------------+--------------------+
+; clock_key ; clock_fpga         ; -2.224 ; -2.224 ; Fall       ; clock_fpga         ;
+; data_key  ; clock_fpga         ; -2.129 ; -2.129 ; Fall       ; clock_fpga         ;
+; reset     ; latch_D_ck:lceas|Q ; -1.629 ; -1.629 ; Fall       ; latch_D_ck:lceas|Q ;
++-----------+--------------------+--------+--------+------------+--------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Clock to Output Times                                                               ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; Data Port    ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; led          ; clock_fpga         ; 6.910 ; 6.910 ; Fall       ; clock_fpga         ;
+; new_code     ; clock_fpga         ; 6.947 ; 6.947 ; Fall       ; clock_fpga         ;
+; data_out[*]  ; latch_D_ck:lceas|Q ; 7.712 ; 7.712 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[0] ; latch_D_ck:lceas|Q ; 7.130 ; 7.130 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[1] ; latch_D_ck:lceas|Q ; 7.100 ; 7.100 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[2] ; latch_D_ck:lceas|Q ; 7.140 ; 7.140 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[3] ; latch_D_ck:lceas|Q ; 7.712 ; 7.712 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[4] ; latch_D_ck:lceas|Q ; 7.505 ; 7.505 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[5] ; latch_D_ck:lceas|Q ; 7.519 ; 7.519 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[6] ; latch_D_ck:lceas|Q ; 7.474 ; 7.474 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[7] ; latch_D_ck:lceas|Q ; 7.463 ; 7.463 ; Fall       ; latch_D_ck:lceas|Q ;
++--------------+--------------------+-------+-------+------------+--------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                                       ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; Data Port    ; Clock Port         ; Rise  ; Fall  ; Clock Edge ; Clock Reference    ;
++--------------+--------------------+-------+-------+------------+--------------------+
+; led          ; clock_fpga         ; 3.565 ; 3.565 ; Fall       ; clock_fpga         ;
+; new_code     ; clock_fpga         ; 3.598 ; 3.598 ; Fall       ; clock_fpga         ;
+; data_out[*]  ; latch_D_ck:lceas|Q ; 3.678 ; 3.678 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[0] ; latch_D_ck:lceas|Q ; 3.697 ; 3.697 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[1] ; latch_D_ck:lceas|Q ; 3.678 ; 3.678 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[2] ; latch_D_ck:lceas|Q ; 3.704 ; 3.704 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[3] ; latch_D_ck:lceas|Q ; 3.910 ; 3.910 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[4] ; latch_D_ck:lceas|Q ; 3.854 ; 3.854 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[5] ; latch_D_ck:lceas|Q ; 3.865 ; 3.865 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[6] ; latch_D_ck:lceas|Q ; 3.834 ; 3.834 ; Fall       ; latch_D_ck:lceas|Q ;
+;  data_out[7] ; latch_D_ck:lceas|Q ; 3.827 ; 3.827 ; Fall       ; latch_D_ck:lceas|Q ;
++--------------+--------------------+-------+-------+------------+--------------------+
+
+
++---------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                             ;
++------------------------+------------------------+----------+----------+----------+----------+
+; From Clock             ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------+------------------------+----------+----------+----------+----------+
+; latch_D_ck:lceas|Q     ; clock_fpga             ; 0        ; 0        ; 0        ; 9        ;
+; SIPO:register|count[0] ; clock_fpga             ; 0        ; 0        ; 0        ; 1        ;
+; clock_fpga             ; latch_D_ck:lceas|Q     ; 0        ; 0        ; 0        ; 1        ;
+; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q     ; 0        ; 0        ; 0        ; 25       ;
+; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; 0        ; 0        ; 7        ; 7        ;
+; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0        ; 24       ; 0        ; 3        ;
+; SIPO:register|count[0] ; SIPO:register|count[0] ; 10       ; 9        ; 1        ; 0        ;
++------------------------+------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                              ;
++------------------------+------------------------+----------+----------+----------+----------+
+; From Clock             ; To Clock               ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------+------------------------+----------+----------+----------+----------+
+; latch_D_ck:lceas|Q     ; clock_fpga             ; 0        ; 0        ; 0        ; 9        ;
+; SIPO:register|count[0] ; clock_fpga             ; 0        ; 0        ; 0        ; 1        ;
+; clock_fpga             ; latch_D_ck:lceas|Q     ; 0        ; 0        ; 0        ; 1        ;
+; latch_D_ck:lceas|Q     ; latch_D_ck:lceas|Q     ; 0        ; 0        ; 0        ; 25       ;
+; SIPO:register|count[0] ; latch_D_ck:lceas|Q     ; 0        ; 0        ; 7        ; 7        ;
+; latch_D_ck:lceas|Q     ; SIPO:register|count[0] ; 0        ; 24       ; 0        ; 3        ;
+; SIPO:register|count[0] ; SIPO:register|count[0] ; 10       ; 9        ; 1        ; 0        ;
++------------------------+------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 3     ; 3    ;
+; Unconstrained Input Port Paths  ; 17    ; 17   ;
+; Unconstrained Output Ports      ; 10    ; 10   ;
+; Unconstrained Output Port Paths ; 10    ; 10   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Jul 16 18:10:19 2018
+Info: Command: quartus_sta ps2 -c ps2
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Warning (335093): TimeQuest Timing Analyzer is analyzing 5 combinational loops as latches.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'ps2.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name latch_D_ck:lceas|Q latch_D_ck:lceas|Q
+    Info (332105): create_clock -period 1.000 -name clock_fpga clock_fpga
+    Info (332105): create_clock -period 1.000 -name SIPO:register|count[0] SIPO:register|count[0]
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -5.727
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -5.727        -9.412 SIPO:register|count[0] 
+    Info (332119):    -3.234        -3.234 clock_fpga 
+    Info (332119):    -0.798        -2.686 latch_D_ck:lceas|Q 
+Info (332146): Worst-case hold slack is -0.887
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.887        -0.952 latch_D_ck:lceas|Q 
+    Info (332119):    -0.285        -0.285 clock_fpga 
+    Info (332119):     0.752         0.000 SIPO:register|count[0] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.631
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.631        -1.631 clock_fpga 
+    Info (332119):    -0.611       -18.330 latch_D_ck:lceas|Q 
+    Info (332119):     0.500         0.000 SIPO:register|count[0] 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -2.402
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.402        -3.790 SIPO:register|count[0] 
+    Info (332119):    -0.521        -0.521 clock_fpga 
+    Info (332119):     0.296         0.000 latch_D_ck:lceas|Q 
+Info (332146): Worst-case hold slack is -0.975
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.975        -1.134 latch_D_ck:lceas|Q 
+    Info (332119):    -0.749        -0.749 clock_fpga 
+    Info (332119):     0.265         0.000 SIPO:register|count[0] 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -1.380 clock_fpga 
+    Info (332119):    -0.500       -15.000 latch_D_ck:lceas|Q 
+    Info (332119):     0.500         0.000 SIPO:register|count[0] 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4556 megabytes
+    Info: Processing ended: Mon Jul 16 18:10:20 2018
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+
